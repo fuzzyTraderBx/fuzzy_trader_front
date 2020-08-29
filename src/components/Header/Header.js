@@ -7,7 +7,7 @@ function Header(props) {
         return s.charAt(0).toUpperCase() + s.slice(1)
     }
     let title = capitalize(props.location.pathname.substring(1,props.location.pathname.length))
-    if(props.location.pathname === '/') {
+    if(props.location.pathname === '/home') {
         title = 'Fuzzy Trader BX'
     }
     function renderLogout() {

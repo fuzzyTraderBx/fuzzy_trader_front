@@ -25,13 +25,14 @@ function LoginForm(props) {
         }
         axios.post('http://127.0.0.1:5000/login', payload)
             .then(function (response) {
-                console.log(response.status);
                 if(response.status === 200){
                     setState(prevState => ({
                         ...prevState,
                         'successMessage' : 'Login successful. Redirecting to home page.'
                     }))
-                    localStorage.setItem('access_token', response.data.token);
+                    localStorage.setItem('access_token', response.data.access_token);
+                    localStorage.setItem('current_user', response.data.user.id);
+                    console.log(response.data.user.id);
                     redirectToHome();
                     props.showError(null)
                 }
