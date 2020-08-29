@@ -7,7 +7,9 @@ import './Home.css';
 import Table from "react-bootstrap/Table";
 import '../Wallet/Wallet.css';
 function Home(props) {
-  const [wallet, setWallet] = useState({});
+  const [page, setPage] = useState(1);
+  const [wallet, setWallet] = useState(0);
+  const [investments, setInvestments] = useState({});
     useEffect(() => {
         let current_user = localStorage.getItem('current_user');
         axios.get('http://127.0.0.1:5000/investments/' + current_user, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') }})
@@ -15,14 +17,15 @@ function Home(props) {
             if(response.status !== 200){
               redirectToLogin()
             }else{
-              setWallet(response.data);
+              setWallet(response.data.total);
+              setInvestments(response.data.investments);
               // console.log(wallet.total);
             }
         })
         .catch(function (error) {
           redirectToLogin()
         });
-      })
+      }, [page]);
     function redirectToLogin() {
         props.history.push('/login');
     }
@@ -31,7 +34,7 @@ function Home(props) {
           <div>
             <div>
                 <h1>Churulei, seu patrimônio hoje:</h1>
-                <h2>{wallet.total} </h2>
+                <h2>{wallet} </h2>
             </div>
             
             <div className="wallet">
@@ -41,30 +44,22 @@ function Home(props) {
                         <th>#</th>
                         <th>Investment</th>
                         <th>Price</th>
+                        <th>Quantity</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <td>1</td>
-                        <td>BTC</td>
-                        <td>USD 10000</td>
-                        </tr>
-                        <tr>
-                        <td>1</td>
-                        <td>BTC</td>
-                        <td>USD 10000</td>
-                        </tr>
-                        <tr>
-                        <td>1</td>
-                        <td>BTC</td>
-                        <td>USD 10000</td>
-                        </tr>
-                        <tr>
-                        <td>1</td>
-                        <td>BTC</td>
-                        <td>USD 10000</td>
-                        </tr>
-                      
+                      {
+                        Object.keys(investments).map((key, index) => (
+                          <tr>
+                          <td> {index + 1} </td>
+                          <td>{key}</td>
+                          <td>${investments[key].price}</td>
+                          <td>{investments[key].quantity}</td>
+                          </tr>
+                          ))
+                      }
+
+                                                                
                     </tbody>
                 </Table>
                 
