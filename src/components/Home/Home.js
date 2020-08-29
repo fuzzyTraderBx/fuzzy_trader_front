@@ -1,6 +1,9 @@
 import React,{ useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios'
+import Wallet from '../Wallet/Wallet';
+import Invest from '../Invest/Invest';
+import './Home.css';
 function Home(props) {
     useEffect(() => {
         let current_user = localStorage.getItem('current_user');
@@ -18,8 +21,9 @@ function Home(props) {
         props.history.push('/login');
     }
     return(
-        <div className="mt-2">
-            Home page content
+        <div className="mt-2 home_div">
+          <Wallet/>
+          <Invest/>     
         </div>
     )
 }

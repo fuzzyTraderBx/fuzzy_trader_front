@@ -1,0 +1,12 @@
+.invest{ 
+    flex-direction:column;
+    width: 40%;
+    height: 20%;
+    background-color: lightgrey;
+    font-family: arial;
+    margin-left: 50%;
+}
+.search{
+    margin-left: 65%;
+    size: 200px;
+}

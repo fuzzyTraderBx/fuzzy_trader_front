@@ -1,5 +1,6 @@
  
 import React from 'react';
+import axios from 'axios';
 import { withRouter } from "react-router-dom";
 function Header(props) {
     const capitalize = (s) => {
@@ -20,8 +21,21 @@ function Header(props) {
         }
     }
     function handleLogout() {
-        localStorage.removeItem('access_token')
-        props.history.push('/login')
+        axios.post('http://127.0.0.1:5000/logout', {}, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') }})
+            .then(function (response) {
+                if(response.status === 200){
+                    localStorage.removeItem('access_token')
+                    localStorage.removeItem('current_user')
+                    props.history.push('/login')
+                    props.showError(null)
+                }
+                else{
+                    props.showError("Some error occurred :( ");
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
     return(
         <nav className="navbar navbar-dark bg-primary">

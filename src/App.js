@@ -4,7 +4,7 @@ import LoginForm from './components/LoginForm/LoginForm';
 import RegistrationForm from './components/RegistrationForm/RegistrationForm';
 import AlertComponent from './components/AlertComponent/AlertComponent';
 import PrivateRoute from './utils/PrivateRoute';
-import Home from './components/Home/Home'
+import Home from './components/Home/Home';
 import { Redirect } from "react-router-dom";
 import {
   BrowserRouter as Router,
