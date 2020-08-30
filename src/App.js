@@ -11,6 +11,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import Shopping from './components/Shopping/Shopping';
 function App() {
 
   const [title, updateTitle] = useState(null);  
@@ -32,6 +33,9 @@ return (
             </Route>
             <PrivateRoute path="/home">
               <Home/>
+            </PrivateRoute>
+            <PrivateRoute path="/search/:max_price">
+              <Shopping/>
             </PrivateRoute>
           </Switch>
           <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>
