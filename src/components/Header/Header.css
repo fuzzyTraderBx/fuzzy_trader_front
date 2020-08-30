@@ -1,0 +1,12 @@
+.navbar{
+    background-color: #79f;
+    font-family: "Helvetica";
+    font-size: 2rem;
+    letter-spacing: -0.03em;
+    z-index: 2;
+}
+
+.btn{
+    background-color: #475c98;
+    color: white;
+}

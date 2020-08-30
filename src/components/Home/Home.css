@@ -1,4 +1,9 @@
 .home_div{
     display:flex; 
     flex-direction:row;
+    font-family: -apple-system;
+}
+
+h2, h3{
+    color: #333333;
 }

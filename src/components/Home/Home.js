@@ -32,12 +32,12 @@ function Home(props) {
         <div className="mt-2 home_div">
           <div>
             <div>
-                <h1>Churulei, seu patrimônio hoje:</h1>
-                <h2>{wallet} </h2>
+                <h2>Churulei, seu patrimônio hoje:</h2>
+                <h3>$ {wallet} </h3>
             </div>
             
             <div className="wallet">
-                <Table striped bordered hover>
+                <Table >
                     <thead>
                         <tr>
                         <th>#</th>

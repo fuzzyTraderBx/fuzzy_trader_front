@@ -1,7 +1,20 @@
-.login-card {
-    min-height: 60vh;
+/* .login-card {
+    min-height: 2vh;
+    position: relative;
+} */
+
+#container{
+    align-self: center;
 }
 
 .registerMessage {
-    margin-top: 10vh;
+    margin-top: 5vh;
+}
+
+body{
+    align-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: #ebf0f5;
+    background-repeat: no-repeat;
 }
