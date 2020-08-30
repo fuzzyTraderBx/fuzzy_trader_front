@@ -44,7 +44,7 @@ function RegistrationForm(props) {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*'}
        }
-            axios.post('http://127.0.0.1:5000/signup', payload, config)
+            axios.post('https://fuzzy-trader-bx.herokuapp.com/signup', payload, config)
                 .then(function (response) {
                     if(response.status === 200){
                         console.log(response);

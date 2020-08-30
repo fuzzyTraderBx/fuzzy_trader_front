@@ -13,7 +13,7 @@ function Shopping(props) {
     }
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:5000/list_investments/' + props.match.params.max_price, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') }})
+        axios.get('https://fuzzy-trader-bx.herokuapp.com/list_investments/' + props.match.params.max_price, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') }})
         .then(function (response) {
             if(response.status !== 200){
             //   redirectToLogin()
@@ -37,17 +37,19 @@ function Shopping(props) {
 
         const current_user = localStorage.getItem('current_user')
 
-        axios.post('http://127.0.0.1:5000/investments/' + current_user, payload, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') }})
+        axios.post('https://fuzzy-trader-bx.herokuapp.com/investments/' + current_user, payload, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') }})
             .then(function (response) {
                 if(response.status === 200){
                     redirectToHome();
-                    props.showError(null)
+                    // props.showError(null)
                 }
                 else if(response.status === 204){
-                    props.showError("Failed to buy.");
+                    // props.showError("Failed to buy.");
+                    console.log("Failed to buy a investment.")
                 }
                 else{
-                    props.showError("failed to buy");
+                    // props.showError("failed to buy");
+                    console.log("Failed to buy")
                 }
             })
             .catch(function (error) {
@@ -68,15 +70,15 @@ function Shopping(props) {
                     </thead>
                     <tbody>
                       {
-                        investments.map(item => {
+                        investments.map(function (item, i) {
                          return(   
-                          <tr>
+                          <tr key={i}>
                           <td> {item.is_criptocurrency ? <p>cripto</p> : <p>stock</p>} </td>   
                           <td> {item.name} </td>
                           <td>{item.value}</td>
                           <td><button 
                             type="button" 
-                            class="btn btn-info"
+                            className="btn btn-info"
                             onClick={() => buy(item.name)}
                             >Buy</button></td>
 

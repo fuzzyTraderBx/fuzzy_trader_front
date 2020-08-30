@@ -23,7 +23,7 @@ function LoginForm(props) {
             "email":state.email,
             "password":state.password,
         }
-        axios.post('http://127.0.0.1:5000/login', payload)
+        axios.post('https://fuzzy-trader-bx.herokuapp.com/login', payload)
             .then(function (response) {
                 if(response.status === 200){
                     setState(prevState => ({

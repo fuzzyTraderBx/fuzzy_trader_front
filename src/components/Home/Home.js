@@ -11,7 +11,7 @@ function Home(props) {
   const [investments, setInvestments] = useState({});
     useEffect(() => {
         let current_user = localStorage.getItem('current_user');
-        axios.get('http://127.0.0.1:5000/investments/' + current_user, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') }})
+        axios.get('https://fuzzy-trader-bx.herokuapp.com/investments/' + current_user, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') }})
         .then(function (response) {
             if(response.status !== 200){
               redirectToLogin()

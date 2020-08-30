@@ -21,7 +21,7 @@ function Header(props) {
         }
     }
     function handleLogout() {
-        axios.post('http://127.0.0.1:5000/logout', {}, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') }})
+        axios.post('https://fuzzy-trader-bx.herokuapp.com/logout', {}, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') }})
             .then(function (response) {
                 if(response.status === 200){
                     localStorage.removeItem('access_token')
