@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios'
-import Wallet from '../Wallet/Wallet';
+import axios from 'axios';
 import Invest from '../Invest/Invest';
 import './Home.css';
 import Table from "react-bootstrap/Table";
@@ -10,7 +9,6 @@ function Home(props) {
   const [page, setPage] = useState(1);
   const [wallet, setWallet] = useState(0);
   const [investments, setInvestments] = useState({});
-  const arg = 'Welcome to React';
     useEffect(() => {
         let current_user = localStorage.getItem('current_user');
         axios.get('http://127.0.0.1:5000/investments/' + current_user, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') }})

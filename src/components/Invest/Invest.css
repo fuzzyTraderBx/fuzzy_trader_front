@@ -1,12 +1,14 @@
 .invest{ 
-    flex-direction:column;
-    width: 40%;
-    height: 20%;
-    background-color: lightgrey;
+    width: 100%;
     font-family: arial;
     margin-left: 50%;
 }
-.search{
+/* .search{
     margin-left: 65%;
     size: 200px;
+} */
+.search_div{
+    margin-left: 50%;
+    flex-direction:row;
+    align-content: flex-end;
 }

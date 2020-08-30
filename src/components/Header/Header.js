@@ -8,11 +8,11 @@ function Header(props) {
         return s.charAt(0).toUpperCase() + s.slice(1)
     }
     let title = capitalize(props.location.pathname.substring(1,props.location.pathname.length))
-    if(props.location.pathname === '/home') {
+    if(props.location.pathname === '/home' || '/search/:max_price') {
         title = 'Fuzzy Trader BX'
     }
     function renderLogout() {
-        if(props.location.pathname === '/home'){
+        if(props.location.pathname === '/home'|| '/search/:max_price'){
             return(
                 <div className="ml-auto">
                     <button className="btn btn-danger" onClick={() => handleLogout()}>Logout</button>
@@ -37,10 +37,14 @@ function Header(props) {
                 console.log(error);
             });
     }
+    const redirectToHome = () => {
+        // props.updateTitle('Home')
+        props.history.push('/home');
+    }
     return(
-        <nav className="navbar navbar-dark bg-primary">
+        <nav className="navbar navbar-dark bg-dark">
             <div className="row col-12 d-flex justify-content-center text-white">
-                <span className="h3">{props.title || title}</span>
+                <span className="h3" onClick={redirectToHome}>{props.title || title}</span>
                 {renderLogout()}
             </div>
         </nav>
