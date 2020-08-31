@@ -32,8 +32,7 @@ function Home(props) {
         <div className="mt-2 home_div">
           <div>
             <div>
-                <h2>Churulei, seu patrimônio hoje:</h2>
-                <h3>$ {wallet} </h3>
+                <h2>Total investments: $ <b>{wallet}</b></h2>
             </div>
             
             <div className="wallet">

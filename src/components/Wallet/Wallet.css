@@ -3,11 +3,14 @@
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+    background-color: rgb(223, 231, 255);
     
 }
 
 table{
+    margin-top: 50px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
+    /* background-color: wheat; */
 }

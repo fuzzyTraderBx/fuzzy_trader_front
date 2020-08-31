@@ -20,7 +20,8 @@ function Invest(props){
     return(
         <div>
         <div className='invest'>
-            <h3>Quanto você quer investir hoje?</h3>
+            <h3>How about invest today?</h3>
+            <h6>Tell us how much and we'll help you to find what is worth today. :)</h6>
         </div>
         <div className='search_div'>
             <InputGroup className="mb-3">
@@ -40,8 +41,9 @@ function Invest(props){
                 >Search
                 
             </Button>
-
+            
             </div>
+           
             </div>
     )
 } 

@@ -1,4 +1,9 @@
 .shopping_div{
     display:flex; 
     flex-direction:column;
+    font-family: -apple-system;
+}
+.support_message{
+    margin-top: 5%;
+    font-family: -apple-system;
 }

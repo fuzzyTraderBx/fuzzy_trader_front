@@ -58,8 +58,10 @@ function Shopping(props) {
     }
 
     return(
+        <div>
         <div className="mt-2 shopping_div">
-         <h1> LISTA DE COISA DISPONIVEL {props.match.params.max_price} </h1> 
+         <h2> Suitable Investments for You </h2>
+         <p> Choose and buy the investments available for your budget!</p> 
          <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -85,11 +87,13 @@ function Shopping(props) {
                           </tr>
                         )})
                       }
-
                                                                 
                     </tbody>
                 </Table>
-          
+               
+        </div>
+        <p className='support_message'>We hope you <b>enjoy the experience</b> of invest with us! <b>;)</b></p>
+        <p className='support_message'> We're constantly working to bring you more investment options.</p>
         </div>
     )
 }
